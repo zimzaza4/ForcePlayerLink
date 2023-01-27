@@ -1,0 +1,6 @@
+name: ForcePlayerLink
+version: '${project.version}'
+main: me.zimzaza4.forceplayerlink.ForcePlayerLink
+api-version: 1.17
+depend: [ floodgate ]
+authors: [ zimzaza4 ]
