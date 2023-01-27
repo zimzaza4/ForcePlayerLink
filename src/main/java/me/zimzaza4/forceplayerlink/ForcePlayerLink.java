@@ -47,6 +47,9 @@ public final class ForcePlayerLink extends JavaPlugin implements Listener {
                         getLogger().info("Linked");
                         FloodgatePlayer floodgatePlayer = floodgateApi.getPlayer(event.getPlayer().getUniqueId());
                         String name = floodgatePlayer.getUsername();
+                        if (getConfig().getBoolean("replace-space")) {
+                            name = name.replace(" ", "_");
+                        }
                         playerLink.linkPlayer(event.getPlayer().getUniqueId(), createOfflinePlayerUuid(name), name);
                         new BukkitRunnable() {
                             @Override
