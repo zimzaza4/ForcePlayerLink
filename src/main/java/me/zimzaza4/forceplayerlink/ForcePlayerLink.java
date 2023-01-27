@@ -39,12 +39,12 @@ public final class ForcePlayerLink extends JavaPlugin implements Listener {
 
                 FloodgateApi floodgateApi = FloodgateApi.getInstance();
                 if (floodgateApi.isFloodgatePlayer(event.getPlayer().getUniqueId())) {
-                    System.out.println("Bedrock Player");
+                    getLogger().info("Bedrock Player");
                     playerLink.isLinkedPlayer(event.getPlayer().getUniqueId()).whenComplete((isLinked, t) -> {
                         if (isLinked) {
                             return;
                         }
-                        System.out.println("Linked");
+                        getLogger().info("Linked");
                         FloodgatePlayer floodgatePlayer = floodgateApi.getPlayer(event.getPlayer().getUniqueId());
                         String name = floodgatePlayer.getUsername();
                         playerLink.linkPlayer(event.getPlayer().getUniqueId(), createOfflinePlayerUuid(name), name);
