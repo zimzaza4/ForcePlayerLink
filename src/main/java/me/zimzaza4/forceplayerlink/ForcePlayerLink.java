@@ -8,6 +8,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerPreLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.geysermc.floodgate.api.FloodgateApi;
@@ -54,7 +55,7 @@ public final class ForcePlayerLink extends JavaPlugin implements Listener {
                 }
                 playerLink.linkPlayer(event.getUniqueId(), createOfflinePlayerUuid(name), name);
 
-                event.disallow(PlayerPreLoginEvent.Result.KICK_OTHER, "正在为您LinkAccount, 请重新进入")
+                event.disallow(PlayerPreLoginEvent.Result.KICK_OTHER, "正在为您LinkAccount, 请重新进入");
 
                 new BukkitRunnable() {
                     @Override
