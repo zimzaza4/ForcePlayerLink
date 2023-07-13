@@ -54,6 +54,8 @@ public final class ForcePlayerLink extends JavaPlugin implements Listener {
                 }
                 playerLink.linkPlayer(event.getUniqueId(), createOfflinePlayerUuid(name), name);
 
+                event.disallow(PlayerPreLoginEvent.Result.KICK_OTHER, "正在为您LinkAccount, 请重新进入")
+
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -62,7 +64,7 @@ public final class ForcePlayerLink extends JavaPlugin implements Listener {
                             player.kickPlayer("正在为您LinkAccount, 请重新进入");
                         }
                     }
-                }.runTaskLater(this, 5);
+                }.runTaskLater(this, 2);
             });
         }
     }
